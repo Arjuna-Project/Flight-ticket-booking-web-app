@@ -3,27 +3,24 @@ import MuiCard from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 const Card = ({
-    children,
-    hover = false,
-    padding = 'none',
-    sx = {},
-    ...rest
+  children,
+  hover = false,
+  padding = 'none',
+  className = '',
+  ...rest
 }) => {
-    return (
-        <MuiCard
-            sx={{
-                height: '100%',
-                transition: 'transform 0.2s',
-                '&:hover': hover ? { transform: 'translateY(-4px)' } : {},
-                ...sx
-            }}
-            {...rest}
-        >
-            <CardContent sx={{ p: padding === 'none' ? 0 : 2, '&:last-child': { pb: padding === 'none' ? 0 : 2 } }}>
-                {children}
-            </CardContent>
-        </MuiCard>
-    );
+  return (
+    <MuiCard
+      className={`h-full transition-transform duration-200 ${
+        hover ? 'hover:-translate-y-1' : ''
+      } ${className}`}
+      {...rest}
+    >
+      <CardContent className={padding === 'none' ? 'p-0' : 'p-4'}>
+        {children}
+      </CardContent>
+    </MuiCard>
+  );
 };
 
 export default Card;

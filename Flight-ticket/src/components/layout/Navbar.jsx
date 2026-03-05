@@ -18,130 +18,160 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Navbar = () => {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const navLinks = [
-        { to: '/', label: 'Home' },
-        { to: '/flights', label: 'Flights' },
-        { to: '/login', label: 'Login' },
-        { to: '/register', label: 'Register' },
-    ];
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/flights', label: 'Flights' },
+    { to: '/login', label: 'Login' },
+    { to: '/register', label: 'Register' },
+  ];
 
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', p: 2 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2, color: 'primary.main', textDecoration: 'none' }} component={Link} to="/">
-                <FlightTakeoffIcon sx={{ mr: 1 }} />
-                <Typography variant="h6" sx={{ fontWeight: 800 }}>SkyBook</Typography>
-            </Box>
-            <List>
-                {navLinks.map((link) => (
-                    <ListItem key={link.to} disablePadding>
-                        <ListItemButton
-                            component={NavLink}
-                            to={link.to}
-                            sx={{
-                                textAlign: 'center',
-                                '&.active': { color: 'primary.main', fontWeight: 'bold' }
-                            }}
-                        >
-                            <ListItemText primary={link.label} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Button fullWidth component={Link} to="/flights" sx={{ mt: 2 }}>
-                Book Now
-            </Button>
-        </Box>
-    );
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
-    return (
-        <AppBar position="sticky" color="default" elevation={1} sx={{ bgcolor: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(8px)' }}>
-            <Container>
-                <Toolbar disableGutters sx={{ height: 70 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, textDecoration: 'none', color: 'inherit' }} component={Link} to="/">
-                        <Box sx={{
-                            width: 36,
-                            height: 36,
-                            bgcolor: 'primary.main',
-                            borderRadius: 1,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: 'white',
-                            mr: 1.5
-                        }}>
-                            <FlightTakeoffIcon fontSize="small" />
-                        </Box>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            sx={{
-                                fontWeight: 800,
-                                display: 'flex',
-                                fontSize: '1.25rem',
-                                background: 'linear-gradient(45deg, #1a73e8 30%, #ffb300 90%)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                            }}
-                        >
-                            SkyBook
-                        </Typography>
-                    </Box>
+  const drawer = (
+    <Box onClick={handleDrawerToggle} className="text-center p-4">
 
-                    {!isMobile ? (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            {navLinks.map((link) => (
-                                <Button
-                                    key={link.to}
-                                    component={NavLink}
-                                    to={link.to}
-                                    variant="text"
-                                    sx={{
-                                        color: 'text.secondary',
-                                        '&.active': { color: 'primary.main', bgcolor: 'primary.light' }
-                                    }}
-                                >
-                                    {link.label}
-                                </Button>
-                            ))}
-                            <Button variant="contained" component={Link} to="/flights" sx={{ ml: 2 }}>
-                                Book Now
-                            </Button>
-                        </Box>
-                    ) : (
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            edge="start"
-                            onClick={handleDrawerToggle}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    )}
-                </Toolbar>
-            </Container>
+      <Box
+        component={Link}
+        to="/"
+        className="flex items-center justify-center mb-4 text-blue-600 no-underline"
+      >
+        <FlightTakeoffIcon className="mr-2" />
+        <Typography variant="h6" className="font-extrabold">
+          SkyBook
+        </Typography>
+      </Box>
 
-            <Drawer
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{ keepMounted: true }}
-                sx={{
-                    display: { xs: 'block', md: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
-                }}
+      <List>
+        {navLinks.map((link) => (
+          <ListItem key={link.to} disablePadding>
+
+            <ListItemButton
+              component={NavLink}
+              to={link.to}
+              className="text-center"
+              style={({ isActive }) =>
+                isActive ? { color: '#1976d2', fontWeight: 'bold' } : {}
+              }
             >
-                {drawer}
-            </Drawer>
-        </AppBar>
-    );
+              <ListItemText primary={link.label} />
+            </ListItemButton>
+
+          </ListItem>
+        ))}
+      </List>
+
+      <Button fullWidth component={Link} to="/flights" className="mt-4">
+        Book Now
+      </Button>
+
+    </Box>
+  );
+
+  return (
+    <AppBar
+      position="sticky"
+      color="default"
+      elevation={1}
+      className="bg-white/95 backdrop-blur-md"
+    >
+
+      <Container>
+
+        <Toolbar disableGutters className="h-[70px]">
+
+          {/* Logo */}
+          <Box
+            component={Link}
+            to="/"
+            className="flex items-center flex-grow no-underline text-inherit"
+          >
+
+            <div className="w-9 h-9 bg-blue-600 rounded flex items-center justify-center text-white mr-2">
+              <FlightTakeoffIcon fontSize="small" />
+            </div>
+
+            <Typography
+              variant="h6"
+              noWrap
+              className="font-extrabold text-xl bg-gradient-to-r from-blue-600 to-yellow-400 bg-clip-text text-transparent"
+            >
+              SkyBook
+            </Typography>
+
+          </Box>
+
+
+          {/* Desktop Menu */}
+          {!isMobile ? (
+
+            <Box className="flex items-center gap-2">
+
+              {navLinks.map((link) => (
+
+                <Button
+                  key={link.to}
+                  component={NavLink}
+                  to={link.to}
+                  variant="text"
+                  className="text-gray-600"
+                  style={({ isActive }) =>
+                    isActive
+                      ? { color: '#1976d2', backgroundColor: '#e3f2fd' }
+                      : {}
+                  }
+                >
+                  {link.label}
+                </Button>
+
+              ))}
+
+              <Button
+                variant="contained"
+                component={Link}
+                to="/flights"
+                className="ml-4"
+              >
+                Book Now
+              </Button>
+
+            </Box>
+
+          ) : (
+
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+
+          )}
+
+        </Toolbar>
+
+      </Container>
+
+
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+      >
+        {drawer}
+      </Drawer>
+
+    </AppBar>
+  );
 };
 
 export default Navbar;
