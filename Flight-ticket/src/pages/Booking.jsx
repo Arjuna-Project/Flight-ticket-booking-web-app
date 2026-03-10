@@ -48,7 +48,6 @@ const Booking = () => {
       <Box className="bg-gray-50 min-h-screen flex items-center py-16">
         <Container maxWidth="sm">
           <Paper className="p-12 text-center rounded-2xl shadow-xl">
-
             <CheckCircleIcon className="text-green-500 text-[80px] mb-6" />
 
             <Typography variant="h4" className="font-bold mb-2">
@@ -61,9 +60,7 @@ const Booking = () => {
 
             {/* BOOKING DETAILS */}
             <Paper className="p-6 mb-10 text-left bg-gray-50 rounded-xl border">
-
               <Stack spacing={3}>
-
                 <Box className="flex justify-between">
                   <Typography className="text-gray-500 text-sm">
                     BOOKING ID
@@ -89,9 +86,7 @@ const Booking = () => {
                     SEAT
                   </Typography>
 
-                  <Typography className="font-bold">
-                    {seat}
-                  </Typography>
+                  <Typography className="font-bold">{seat}</Typography>
                 </Box>
 
                 <Box className="flex justify-between">
@@ -100,24 +95,21 @@ const Booking = () => {
                   </Typography>
 
                   <Typography className="font-bold">
-                    {formData?.firstName || "Passenger"} {formData?.lastName || ""}
+                    {formData?.firstName || "Passenger"}{" "}
+                    {formData?.lastName || ""}
                   </Typography>
                 </Box>
 
                 <Divider />
 
                 <Box className="flex justify-between items-center">
-                  <Typography className="font-semibold">
-                    Total Paid
-                  </Typography>
+                  <Typography className="font-semibold">Total Paid</Typography>
 
                   <Typography className="text-blue-600 font-bold text-xl">
                     ₹{flight.price.toLocaleString("en-IN")}
                   </Typography>
                 </Box>
-
               </Stack>
-
             </Paper>
 
             <Button
@@ -128,7 +120,6 @@ const Booking = () => {
             >
               Back to Home
             </Button>
-
           </Paper>
         </Container>
       </Box>
@@ -139,36 +130,28 @@ const Booking = () => {
 
   return (
     <Box className="bg-gray-50 min-h-screen py-16">
-
       <Container>
-
         <Typography variant="h4" className="font-bold mb-10">
           Complete Your Booking
         </Typography>
 
-        <Grid container spacing={4}>
-
+        <Grid container spacing={4} justifyContent="center">
           {/* PASSENGER FORM */}
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12}>
             <PassengerForm onFormChange={setFormData} />
           </Grid>
 
           {/* BOOKING SUMMARY */}
-          <Grid item xs={12} md={4}>
-
+          <Grid item xs={12} className="flex justify-center">
             <Box className="sticky top-[100px]">
-
-              <Paper className="p-8 rounded-xl shadow-md">
-
+              <Paper className="p-8 rounded-xl shadow-md w-[420px]">
                 <Typography className="font-bold mb-6">
                   Booking Summary
                 </Typography>
 
                 {/* FLIGHT CARD */}
                 <Box className="p-5 mb-6 rounded-xl border border-blue-200 bg-blue-50">
-
                   <Box className="flex items-center gap-3 mb-4">
-
                     <FlightIcon className="rotate-90 text-blue-600" />
 
                     <Box>
@@ -180,11 +163,9 @@ const Booking = () => {
                         {flight.id}
                       </Typography>
                     </Box>
-
                   </Box>
 
                   <Box className="flex justify-between items-center">
-
                     <Box className="text-center">
                       <Typography className="font-bold">
                         {flight.departure}
@@ -206,14 +187,11 @@ const Booking = () => {
                         {flight.toCode}
                       </Typography>
                     </Box>
-
                   </Box>
-
                 </Box>
 
                 {/* DETAILS */}
                 <Stack spacing={2} className="mb-6">
-
                   <Box className="flex justify-between">
                     <Typography className="text-gray-500 text-sm">
                       Class
@@ -229,9 +207,7 @@ const Booking = () => {
                       Seat
                     </Typography>
 
-                    <Typography className="font-semibold">
-                      {seat}
-                    </Typography>
+                    <Typography className="font-semibold">{seat}</Typography>
                   </Box>
 
                   <Divider />
@@ -245,7 +221,6 @@ const Booking = () => {
                       ₹{flight.price.toLocaleString("en-IN")}
                     </Typography>
                   </Box>
-
                 </Stack>
 
                 <Button
@@ -256,17 +231,11 @@ const Booking = () => {
                 >
                   Confirm & Pay
                 </Button>
-
               </Paper>
-
             </Box>
-
           </Grid>
-
         </Grid>
-
       </Container>
-
     </Box>
   );
 };

@@ -10,29 +10,15 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
 import Alert from "@mui/material/Alert";
+import StarIcon from "@mui/icons-material/Star";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
-import ChairIcon from "@mui/icons-material/Chair";
-import UsbIcon from "@mui/icons-material/Usb";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
-import LuggageIcon from "@mui/icons-material/Luggage";
-import WifiIcon from "@mui/icons-material/Wifi";
-import StarIcon from "@mui/icons-material/Star";
 
 import { flights } from "../data/flights";
 import SeatMap from "../components/flight/SeatMap";
 import Container from "../components/ui/Container";
 import Button from "../components/ui/Button";
 
-const amenities = [
-  { icon: <RestaurantIcon fontSize="small" />, label: "Meal Included" },
-  { icon: <ChairIcon fontSize="small" />, label: "Reclining Seats" },
-  { icon: <UsbIcon fontSize="small" />, label: "USB Charging" },
-  { icon: <LiveTvIcon fontSize="small" />, label: "Entertainment" },
-  { icon: <LuggageIcon fontSize="small" />, label: "15 kg Baggage" },
-  { icon: <WifiIcon fontSize="small" />, label: "In-flight Wi-Fi" },
-];
 
 const FlightDetails = () => {
   const { id } = useParams();
@@ -64,10 +50,10 @@ const FlightDetails = () => {
           </Typography>
         </Breadcrumbs>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent="center">
 
           {/* LEFT SECTION */}
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={9} lg={8}>
 
             <Stack spacing={4}>
 
@@ -180,37 +166,6 @@ const FlightDetails = () => {
 
               </Paper>
 
-              {/* AMENITIES */}
-              <Paper className="p-8 rounded-xl shadow-sm">
-
-                <Typography className="font-bold mb-6">
-                  Flight Amenities
-                </Typography>
-
-                <Grid container spacing={3}>
-
-                  {amenities.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} key={item.label}>
-
-                      <Box className="p-4 bg-gray-50 rounded-lg flex items-center gap-3 border">
-
-                        <Box className="text-blue-600">
-                          {item.icon}
-                        </Box>
-
-                        <Typography className="font-semibold">
-                          {item.label}
-                        </Typography>
-
-                      </Box>
-
-                    </Grid>
-                  ))}
-
-                </Grid>
-
-              </Paper>
-
               {/* SEAT MAP */}
               <SeatMap onSeatSelect={setSelectedSeat} />
 
@@ -220,9 +175,9 @@ const FlightDetails = () => {
 
 
           {/* RIGHT SIDEBAR */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6} lg={4}>
 
-            <Box className="sticky top-[100px]">
+            <Box className="flex justify-center">
 
               <Paper className="p-8 rounded-xl shadow-sm">
 

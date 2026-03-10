@@ -45,31 +45,74 @@ const features = [
 ];
 
 const popularRoutes = [
-  { from: "Delhi",     fromCode: "DEL", to: "Mumbai",    toCode: "BOM", price: "₹3,200", gradient: "from-blue-500 to-violet-600" },
-  { from: "Mumbai",    fromCode: "BOM", to: "Goa",       toCode: "GOI", price: "₹2,500", gradient: "from-cyan-500 to-blue-500" },
-  { from: "Bangalore", fromCode: "BLR", to: "Hyderabad", toCode: "HYD", price: "₹2,100", gradient: "from-violet-500 to-purple-700" },
-  { from: "Delhi",     fromCode: "DEL", to: "Kolkata",   toCode: "CCU", price: "₹3,800", gradient: "from-amber-500 to-orange-600" },
-  { from: "Chennai",   fromCode: "MAA", to: "Delhi",     toCode: "DEL", price: "₹4,100", gradient: "from-teal-500 to-green-600" },
-  { from: "Mumbai",    fromCode: "BOM", to: "Jaipur",    toCode: "JAI", price: "₹3,600", gradient: "from-rose-500 to-pink-600" },
+  {
+    from: "Delhi",
+    fromCode: "DEL",
+    to: "Mumbai",
+    toCode: "BOM",
+    price: "₹3,200",
+    gradient: "from-blue-500 to-violet-600",
+  },
+  {
+    from: "Mumbai",
+    fromCode: "BOM",
+    to: "Goa",
+    toCode: "GOI",
+    price: "₹2,500",
+    gradient: "from-cyan-500 to-blue-500",
+  },
+  {
+    from: "Bangalore",
+    fromCode: "BLR",
+    to: "Hyderabad",
+    toCode: "HYD",
+    price: "₹2,100",
+    gradient: "from-violet-500 to-purple-700",
+  },
+  {
+    from: "Delhi",
+    fromCode: "DEL",
+    to: "Kolkata",
+    toCode: "CCU",
+    price: "₹3,800",
+    gradient: "from-amber-500 to-orange-600",
+  },
+  {
+    from: "Chennai",
+    fromCode: "MAA",
+    to: "Delhi",
+    toCode: "DEL",
+    price: "₹4,100",
+    gradient: "from-teal-500 to-green-600",
+  },
+  {
+    from: "Mumbai",
+    fromCode: "BOM",
+    to: "Jaipur",
+    toCode: "JAI",
+    price: "₹3,600",
+    gradient: "from-rose-500 to-pink-600",
+  },
 ];
 
 const stats = [
-  { label: "Happy Travellers", value: "2M+",  icon: "😊" },
-  { label: "Flights Booked",   value: "10M+", icon: "✈️" },
-  { label: "Airlines",         value: "50+",  icon: "🌐" },
-  { label: "Destinations",     value: "500+", icon: "📍" },
+  { label: "Happy Travellers", value: "2M+", icon: "😊" },
+  { label: "Flights Booked", value: "10M+", icon: "✈️" },
+  { label: "Airlines", value: "50+", icon: "🌐" },
+  { label: "Destinations", value: "500+", icon: "📍" },
 ];
 
 /* ─── SECTION HEADER ─────────────────────────────────────────── */
 
 const SectionHeader = ({ title, subtitle }) => (
   <div className="text-center mb-12">
-    <Typography variant="h4" className="!font-extrabold !tracking-tight !text-slate-900 !mb-1">
+    <Typography
+      variant="h4"
+      className="!font-extrabold !tracking-tight !text-slate-900 !mb-1"
+    >
       {title}
     </Typography>
-    <Typography className="!text-slate-500 !text-base">
-      {subtitle}
-    </Typography>
+    <Typography className="!text-slate-500 !text-base">{subtitle}</Typography>
   </div>
 );
 
@@ -77,16 +120,13 @@ const SectionHeader = ({ title, subtitle }) => (
 
 const Home = () => (
   <Box>
-
     {/* ── HERO ── */}
     <Box className="bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-600 pt-20 pb-28 md:pt-24 md:pb-36 relative overflow-hidden">
       <Container>
         <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
-
           {/* LEFT — copy */}
           <Grid item xs={12} md={5}>
             <Stack spacing={3.5}>
-
               {/* badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-yellow-300/40 bg-yellow-300/10 w-fit">
                 <TrendingUpIcon className="!text-yellow-300 !text-base" />
@@ -99,20 +139,22 @@ const Home = () => (
               <div>
                 <Typography
                   component="h1"
-                  className="!text-5xl md:!text-6xl !font-black !leading-tight !tracking-tight !text-white"
+                  className="!text-6xl md:!text-7xl !font-black !leading-tight !tracking-tight !text-white"
                 >
                   Fly Anywhere
                 </Typography>
+
                 <Typography
                   component="h1"
-                  className="!text-5xl md:!text-6xl !font-black !leading-tight !tracking-tight bg-gradient-to-r from-yellow-300 to-white bg-clip-text text-transparent"
+                  className="!text-6xl md:!text-7xl !font-black !leading-tight !tracking-tight bg-gradient-to-r from-yellow-300 to-white bg-clip-text text-transparent"
                 >
-                  Anytime ✈️
+                  Anytime 
                 </Typography>
               </div>
 
-              <Typography className="!text-white/75 !text-lg !leading-relaxed max-w-sm">
-                Book flights at the best prices with SkyBook — fast, secure and reliable.
+              <Typography className="!text-white/75 !text-xl !leading-relaxed max-w-sm">
+                Book flights at the best prices with SkyBook — fast, secure and
+                reliable.
               </Typography>
 
               <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
@@ -130,7 +172,6 @@ const Home = () => (
                   Browse Flights
                 </Button>
               </Stack>
-
             </Stack>
           </Grid>
 
@@ -140,7 +181,6 @@ const Home = () => (
               <SearchForm />
             </Box>
           </Grid>
-
         </Grid>
       </Container>
     </Box>
@@ -158,10 +198,10 @@ const Home = () => (
               <Typography className="!text-3xl !leading-none !mb-2">
                 {stat.icon}
               </Typography>
-              <Typography className="!text-2xl !font-extrabold !text-slate-900 !leading-none">
+              <Typography className="!text-4xl !font-extrabold !text-slate-900 !leading-none">
                 {stat.value}
               </Typography>
-              <Typography className="!text-xs !text-slate-400 !font-medium !mt-1">
+              <Typography className="!text-sm !text-slate-400 !font-medium !mt-1">
                 {stat.label}
               </Typography>
             </div>
@@ -173,7 +213,10 @@ const Home = () => (
     {/* ── POPULAR ROUTES ── */}
     <Box className="py-16 md:py-24 bg-white">
       <Container>
-        <SectionHeader title="Popular Routes" subtitle="Explore the most booked destinations" />
+        <SectionHeader
+          title="Popular Routes"
+          subtitle="Explore the most booked destinations"
+        />
 
         {/* 3 columns on md+, 2 on sm, 1 on xs */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -190,23 +233,23 @@ const Home = () => (
               <div className="p-5">
                 {/* city row */}
                 <Stack direction="row" alignItems="center" spacing={1}>
-                  <Typography className="!font-bold !text-sm !text-slate-800 whitespace-nowrap">
+                  <Typography className="!font-bold !text-xl !text-slate-800 whitespace-nowrap">
                     {route.from}
                   </Typography>
                   <div className="flex-1 border-t-2 border-dashed border-slate-200" />
-                  <FlightTakeoffIcon className="!text-lg !text-blue-600 rotate-45" />
+                  <FlightTakeoffIcon className="!text-xl !text-blue-600 rotate-45" />
                   <div className="flex-1 border-t-2 border-dashed border-slate-200" />
-                  <Typography className="!font-bold !text-sm !text-slate-800 whitespace-nowrap">
+                  <Typography className="!font-bold !text-xl !text-slate-800 whitespace-nowrap">
                     {route.to}
                   </Typography>
                 </Stack>
 
                 {/* code + price row */}
                 <div className="flex items-center justify-between mt-3">
-                  <Typography className="!text-xs !text-slate-400 !font-semibold !tracking-wide">
+                  <Typography className="!text-sm !text-slate-400 !font-semibold !tracking-wide">
                     {route.fromCode} → {route.toCode}
                   </Typography>
-                  <Typography className="!font-extrabold !text-lg !text-blue-600">
+                  <Typography className="!font-extrabold !text-2xl !text-blue-600">
                     {route.price}
                   </Typography>
                 </div>
@@ -220,7 +263,10 @@ const Home = () => (
     {/* ── FEATURES ── */}
     <Box className="bg-slate-50 py-16 md:py-24">
       <Container>
-        <SectionHeader title="Why Choose SkyBook" subtitle="Trusted by millions of travellers" />
+        <SectionHeader
+          title="Why Choose SkyBook"
+          subtitle="Trusted by millions of travellers"
+        />
 
         {/* 4 columns on md+, 2 on sm, 1 on xs */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
@@ -234,17 +280,17 @@ const Home = () => (
                 {feature.icon}
               </div>
 
-              <Typography className="!font-bold !text-sm !text-slate-800 !mb-2">
+              <Typography className="!font-bold !text-lg !text-slate-800 !mb-2">
                 {feature.title}
               </Typography>
 
-              <Typography className="!text-xs !text-slate-500 !leading-relaxed flex-1">
+              <Typography className="!text-lg !text-slate-500 !leading-relaxed flex-1">
                 {feature.desc}
               </Typography>
 
               {/* stat pill */}
               <div className="mt-4 px-3 py-1 rounded-full bg-blue-50">
-                <Typography className="!text-xs !font-bold !text-blue-600">
+                <Typography className="!text-lg !font-bold !text-blue-600">
                   {feature.stat}
                 </Typography>
               </div>
@@ -253,7 +299,6 @@ const Home = () => (
         </div>
       </Container>
     </Box>
-
   </Box>
 );
 
